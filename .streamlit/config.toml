@@ -1,0 +1,7 @@
+[theme]
+base = "dark"
+primaryColor = "#1d99e0ff"               # calm blue
+backgroundColor = "#0D1B2A"            # very dark navy
+secondaryBackgroundColor = "#1B263B"   # deep blue-gray
+textColor = "#E0E1DD"                   # off-white
+font = "sans serif"
