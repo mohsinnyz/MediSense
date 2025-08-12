@@ -41,11 +41,6 @@
 ![Prediction Results](demo/4.png)
 *The app displays the deatils, remedies, immediate next steps and detailed information about predicted disease.*
 
-### Mobile Responsive
-![Mobile View](demo/5.png)
-![Mobile View](demo/6.png)
-*The app is fully responsive and works well on mobile devices.*
-
 ---
 
 ## 🛠️ Installation
