@@ -1,17 +1,15 @@
 
-````
 # MediSense - AI-powered Symptom Checker & Medical Assistant
 
-![MediSense Logo](https://huggingface.co/mohsinnyz/Disease-Guider/raw/main/logo.png)  
-*Note: Replace the above URL with your actual logo URL if available.*
+![MediSense Logo](https://huggingface.co/mohsinnyz/Disease-Guider/raw/main/logo.png)
 
----
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat&logo=streamlit&logoColor=white)](https://streamlit.io/)
+[![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/downloads/)
 
 ## Overview
 
-**MediSense** is an AI-driven symptom checker and medical assistant web app built with Streamlit. It allows users to select symptoms and predicts the most probable disease using a trained machine learning model. The app also integrates with Google Gemini API (if an API key is provided) to provide concise, medically accurate information about the predicted disease, including next steps, home remedies, and urgent care advice.
-
----
+**MediSense** is an AI-powered medical assistant that helps users identify potential health conditions based on reported symptoms. Built with Streamlit, this web application uses machine learning to predict diseases and provides detailed information using the Google Gemini API. The application is designed with a clean, responsive interface that works across all devices.
 
 ## Features
 
@@ -29,6 +27,26 @@
 Access the live app here:  
 [https://your-streamlit-app-url](https://your-streamlit-app-url)  
 *(Replace with your deployed app URL)*
+
+---
+
+## Demo Pictures
+
+### Main Interface
+![Main Interface](demo/main_interface.png)
+*The main interface where users can select their symptoms from the dropdown menu.*
+
+### Symptom Selection
+![Symptom Selection](demo/symptom_selection.png)
+*Users can select 3-5 symptoms from the comprehensive list.*
+
+### Prediction Results
+![Prediction Results](demo/prediction_results.png)
+*The app displays the predicted disease along with confidence level and detailed information.*
+
+### Mobile Responsive
+![Mobile View](demo/mobile_view.png)
+*The app is fully responsive and works well on mobile devices.*
 
 ---
 
