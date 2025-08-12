@@ -1,8 +1,6 @@
 
 # MediSense - AI-powered Symptom Checker & Medical Assistant
 
-![MediSense Logo](https://huggingface.co/mohsinnyz/Disease-Guider/raw/main/logo.png)
-
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat&logo=streamlit&logoColor=white)](https://streamlit.io/)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/downloads/)
@@ -11,24 +9,30 @@
 
 **MediSense** is an AI-powered medical assistant that helps users identify potential health conditions based on reported symptoms. Built with Streamlit, this web application uses machine learning to predict diseases and provides detailed information using the Google Gemini API. The application is designed with a clean, responsive interface that works across all devices.
 
-## Features
+## ✨ Features
 
-- Select 3 to 5 symptoms from a comprehensive list.
-- Predict disease based on symptoms using a pre-trained ML model.
-- Displays prediction confidence.
-- Provides detailed disease information using the Google Gemini API.
-- Clean and responsive UI with custom styling.
-- Informative disclaimers for medical advice.
+- **Symptom Analysis**: Select 3-5 symptoms from a comprehensive list
+- **AI-Powered Predictions**: Get instant disease predictions with confidence scores
+- **Detailed Disease Information**: Comprehensive details about predicted conditions (requires Google Gemini API key)
+- **Responsive Design**: Fully responsive interface that works on desktop and mobile
+- **Secure & Private**: No personal health data is stored or logged
+- **Educational Tool**: Learn about symptoms and potential conditions
 
----
+## 🚀 Demo
 
-## Demo
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://mohsinnyz-medisense.streamlit.app/)
 
-Access the live app here:  
-[https://your-streamlit-app-url](https://your-streamlit-app-url)  
-*(Replace with your deployed app URL)*
 
----
+## 🖼️ Demo Screenshots
+
+| Feature | Preview |
+|---------|---------|
+| **Main Interface** | ![Main Interface](https://via.placeholder.com/400x250?text=Main+Interface) |
+| **Symptom Selection** | ![Symptom Selection](https://via.placeholder.com/400x250?text=Symptom+Selection) |
+| **Prediction Results** | ![Prediction Results](https://via.placeholder.com/400x250?text=Prediction+Results) |
+| **Mobile View** | ![Mobile View](https://via.placeholder.com/200x400?text=Mobile+View) |
+
+*Note: Replace the placeholder images with actual screenshots of your application*
 
 ## Demo Pictures
 
@@ -50,104 +54,103 @@ Access the live app here:
 
 ---
 
-## Installation
+## 🛠️ Installation
+
+### Prerequisites
+- Python 3.10 or higher
+- pip (Python package installer)
+- Git (optional, for version control)
+
+### Setup Instructions
 
 1. **Clone the repository**
-
    ```bash
-   git clone https://github.com/yourusername/medi-sense.git
-   cd medi-sense
-````
+   git clone https://github.com/yourusername/MediSense.git
+   cd MediSense
+   ```
 
-2. **Create and activate a virtual environment (recommended)**
-
+2. **Create and activate a virtual environment**
    ```bash
+   # Windows
+   python -m venv venv
+   .\venv\Scripts\activate
+
+   # macOS/Linux
    python3 -m venv venv
-   source venv/bin/activate   # Linux/macOS
-   .\venv\Scripts\activate    # Windows
+   source venv/bin/activate
    ```
 
 3. **Install dependencies**
-
    ```bash
    pip install -r requirements.txt
    ```
 
-4. **Set up Streamlit secrets**
-
-   Create a `secrets.toml` file in `.streamlit` directory with the following content to add your Gemini API key (optional):
-
+4. **Set up environment variables**
+   Create a `.streamlit/secrets.toml` file with your Google Gemini API key:
    ```toml
    GEMINI_API_KEY = "your-google-gemini-api-key"
    ```
+   > ℹ️ *Note: The app works without an API key, but detailed disease information won't be available.*
 
-   If you don't have a Gemini API key, the app will still work but without detailed disease descriptions.
+## 🚀 Quick Start
 
----
+1. **Run the application**
+   ```bash
+   streamlit run app.py
+   ```
 
-## Usage
+2. **Access the app**
+   Open your browser and navigate to `http://localhost:8501`
 
-Run the Streamlit app locally with:
+## 🧠 How It Works
 
-```bash
-streamlit run app.py
+1. **Symptom Selection**: Users select 3-5 symptoms from the provided list
+2. **Disease Prediction**: The ML model processes the symptoms and predicts the most likely condition
+3. **Information Retrieval**: If a Gemini API key is provided, detailed disease information is fetched
+4. **Results Display**: The app shows the prediction with confidence level and additional details
+
+## 🏗️ Project Structure
+
+```
+MediSense/
+├── .streamlit/
+│   └── secrets.toml       # API keys and sensitive data
+├── venv/                  # Virtual environment (ignored in .gitignore)
+├── app.py                 # Main application file
+├── requirements.txt       # Project dependencies
+└── README.md              # This file
 ```
 
-* Select 3 to 5 symptoms from the dropdown list.
-* Click the **Predict Disease** button.
-* View the predicted disease and confidence.
-* If configured, read detailed disease info powered by Google Gemini API.
+## 🤖 Technologies Used
 
----
+### Core Technologies
+- **Streamlit**: Web application framework
+- **Scikit-learn**: Machine learning model for disease prediction
+- **Google Gemini API**: For fetching detailed disease information
+- **Hugging Face Hub**: For hosting and serving ML models
 
-## File Structure
+### Dependencies
+- Python 3.10+
+- streamlit
+- scikit-learn
+- joblib
+- requests
+- huggingface_hub
 
-```
-.
-├── app.py            
-├── requirements.txt      
-├── README.md              
-└── .streamlit/            
-```
+## Model Details
 
-> Note: The ML models and encoders are loaded dynamically from the Hugging Face repo:
-> `https://huggingface.co/mohsinnyz/Disease-Guider`
-
----
-
-## Technologies Used
-
-* Python 3.x
-* Streamlit
-* Scikit-learn (joblib for loading models)
-* NumPy
-* Requests
-* Google Gemini API (optional)
-* Hugging Face (for model hosting)
-
----
+The application uses a pre-trained machine learning model from Hugging Face Hub:
+- **Model Repository**: [mohsinnyz/Disease-Guider](https://huggingface.co/mohsinnyz/Disease-Guider)
+- **Model Type**: Classification
+- **Input**: Selected symptoms (3-5)
+- **Output**: Predicted disease with confidence score
 
 ## Disclaimer
 
-⚠️ **This tool is for informational purposes only.**
-**It is NOT a substitute for professional medical advice, diagnosis, or treatment.**
-**Always consult a licensed medical professional for any health concerns.**
-
----
-
-## Contact
-
-Created by Mohsin Nyz
-GitHub: [https://github.com/mohsinnyz](https://github.com/mohsinnyz)
-Hugging Face: [https://huggingface.co/mohsinnyz](https://huggingface.co/mohsinnyz)
-
----
+This application is for **educational and informational purposes only** and is not intended to be a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition.
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-```
 
-Let me know if you want me to generate the `requirements.txt` or any other files!
-```
