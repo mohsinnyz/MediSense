@@ -1,8 +1,5 @@
-#D:\MediSense\readme.md
 
-Sure! Here's a README.md file in Markdown format for your Streamlit app:
-
-````markdown
+````
 # MediSense - AI-powered Symptom Checker & Medical Assistant
 
 ![MediSense Logo](https://huggingface.co/mohsinnyz/Disease-Guider/raw/main/logo.png)  
