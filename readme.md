@@ -20,33 +20,26 @@
 
 ## 🚀 Demo
 
-[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://mohsinnyz-medisense.streamlit.app/)
+[![Open App in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://mohsinnyz-medisense.streamlit.app/)
 
-
-## 🖼️ Demo Screenshots
-
-| Feature | Preview |
-|---------|---------|
-| **Main Interface** | ![Main Interface](https://via.placeholder.com/400x250?text=Main+Interface) |
-| **Symptom Selection** | ![Symptom Selection](https://via.placeholder.com/400x250?text=Symptom+Selection) |
-| **Prediction Results** | ![Prediction Results](https://via.placeholder.com/400x250?text=Prediction+Results) |
-| **Mobile View** | ![Mobile View](https://via.placeholder.com/200x400?text=Mobile+View) |
-
-*Note: Replace the placeholder images with actual screenshots of your application*
 
 ## Demo Pictures
 
 ### Main Interface
-![Main Interface](demo/main_interface.png)
+![Main Interface](demo/1.png)
 *The main interface where users can select their symptoms from the dropdown menu.*
 
 ### Symptom Selection
-![Symptom Selection](demo/symptom_selection.png)
+![Symptom Selection](demo/2.png)
 *Users can select 3-5 symptoms from the comprehensive list.*
 
 ### Prediction Results
-![Prediction Results](demo/prediction_results.png)
-*The app displays the predicted disease along with confidence level and detailed information.*
+![Prediction Results](demo/3.png)
+*The app displays the predicted disease along with confidence level.*
+
+### Detailed Analysis
+![Prediction Results](demo/4.png)
+*The app displays the deatils, remedies, immediate next steps and detailed information about predicted disease.*
 
 ### Mobile Responsive
 ![Mobile View](demo/mobile_view.png)

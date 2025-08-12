@@ -255,7 +255,6 @@ if predict_btn:
             </div>
         </div>
         """, unsafe_allow_html=True)
-        
         st.markdown("---")
             
         if gemini_api_key:
@@ -275,11 +274,14 @@ if predict_btn:
             2. Recommended next steps: Safe, general advice.
             3. Possible home remedies: For mild cases (with disclaimers).
             4. When to seek urgent medical care: Clear red flags.
-            Keep it concise, structured, and medically accurate.
+            Keep it concise, structured, and medically accurate. Use Markdown for lists and emphasis.
             """
+            
             headers = {"Content-Type": "application/json"}
             body = {"contents": [{"parts": [{"text": prompt}]}]}
+            
             try:
+                # Use gemini-1.5-flash which is a more powerful model for this task.
                 response = requests.post(
                     "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent",
                     headers=headers,
@@ -293,14 +295,32 @@ if predict_btn:
                     result = response.json()
                     if "candidates" in result:
                         llm_response_text = result["candidates"][0]["content"]["parts"][0]["text"].strip()
-
-                        # Clear loading before showing response
                         loading_placeholder_gemini.empty()
                         
-                        # Now the LLM response is part of the medical-card div
-                        # The regex is adjusted to capture the number and the title text separately
+                        # Use Markdown for all content rendering
+                        st.markdown("""
+                            <style>
+                            .section-title {
+                                font-size: 1.2rem;
+                                font-weight: bold;
+                                color: #93C5FD;
+                                margin-top: 20px;
+                                margin-bottom: 6px;
+                            }
+                            .section-content {
+                                background-color: #2D3A4B;
+                                padding: 12px;
+                                border-radius: 8px;
+                                font-size: 1rem;
+                                line-height: 1.6;
+                                margin-bottom: 14px;
+                            }
+                            </style>
+                        """, unsafe_allow_html=True)
+
+                        # Regex to split content by numbered headings.
                         sections = re.split(r'\n\s*(\d+\.)\s*([^\n:]+:\s*)', llm_response_text)
-                        
+
                         if len(sections) > 1:
                             emoji_map = {
                                 'Medical Description': '📝',
@@ -308,29 +328,25 @@ if predict_btn:
                                 'Possible home remedies': '🌿',
                                 'When to seek urgent medical care': '🚨'
                             }
-                            # The first element is an empty string, so we start from the second element
+                            
                             for i in range(1, len(sections), 3):
-                                # Extract number and text
                                 number = sections[i].strip()
                                 title_text_part = sections[i+1].strip() if i+1 < len(sections) else ''
                                 content = sections[i+2].strip() if i+2 < len(sections) else ''
                                 
                                 emoji = emoji_map.get(title_text_part.replace(":", "").strip(), '•')
+                                final_title_html = f"<div class='section-title'>{emoji} <strong>{number} {title_text_part}</strong></div>"
                                 
-                                # Manually apply HTML <strong> for bolding the number
-                                final_title = f"<strong>{number}</strong>{title_text_part}"
-                                
-                                st.markdown(f"<div class='section-title'>{emoji} {final_title}</div>", unsafe_allow_html=True)
-                                st.markdown(f"<div class='section-content'>{content}</div>", unsafe_allow_html=True)
+                                st.markdown(final_title_html, unsafe_allow_html=True)
+                                st.markdown(content)
                         else:
-                            st.markdown(f"<div class='section-content'>{llm_response_text}</div>", unsafe_allow_html=True)
+                            st.markdown(llm_response_text)
                     else:
                         st.error("❌ Gemini API returned no valid text.")
             except Exception as e:
                 loading_placeholder_gemini.empty()
                 st.error(f"Failed to fetch description: {e}")
             
-            # This is the correct placement to close the medical-card div
             st.markdown("</div>", unsafe_allow_html=True)
         else:
             st.info("💡 Gemini API key not found in secrets.toml. Disease care suggestion feature is unavailable.")
